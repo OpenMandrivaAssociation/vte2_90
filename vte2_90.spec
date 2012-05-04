@@ -8,7 +8,7 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
 Name:		vte%{api}
-Version:	0.31.0
+Version:	0.32.1
 Release:	1
 Summary:	A terminal emulator widget
 License:	LGPLv2+
@@ -81,7 +81,6 @@ find %{buildroot} -name "*.la" -delete
 %{_bindir}/vte%{api}
 %dir %{_libdir}/%{name}
 %attr(2711,root,utmp) %{_libdir}/%{name}/gnome-pty-helper
-%{_datadir}/vte/termcap-%{gir_major}
 
 %files -n %{libname}
 %{_libdir}/libvte%{api}.so.%{major}*
