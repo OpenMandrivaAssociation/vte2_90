@@ -8,7 +8,7 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
 Name:		vte%{api}
-Version:	0.32.1
+Version:	0.32.2
 Release:	1
 Summary:	A terminal emulator widget
 License:	LGPLv2+
