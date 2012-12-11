@@ -1,10 +1,10 @@
+%define url_ver	%(echo %{version}|cut -d. -f1,2)
+
 %define api	2_90
 %define major	9
 %define libname	%mklibname vte %{api} %{major}
 %define girname	%mklibname vte-gir %{api}
 %define devname	%mklibname -d %{name}
-
-%define url_ver	%(echo %{version}|cut -d. -f1,2)
 
 Name:		vte%{api}
 Version:	0.34.2
@@ -17,7 +17,6 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/vte/%{url_ver}/vte-%{version}.tar
 # See https://bugzilla.gnome.org/show_bug.cgi?id=663779
 Patch0:		vte-0.31.0-gtk32-meta-map.patch
 
-BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(cairo-xlib)
@@ -33,20 +32,9 @@ VTE is a terminal emulator widget for use with GTK+ 3.0.
 %package -n %{libname}
 Summary:	A terminal emulator widget
 Group:		System/Libraries
-Requires:	%{name} >= %{version}
 
 %description -n %{libname}
 VTE is a terminal emulator widget for use with GTK+ 3.0.
-
-%package -n %{devname}
-Summary:	Files needed for developing applications which use VTE
-Group:		Development/C
-Provides:	%{name}-devel = %{version}-%{release}
-Requires: 	%{libname} = %{version}-%{release}
-
-%description -n %{devname}
-VTE is a terminal emulator widget for use with GTK+ 3.0.  This
-package contains the files needed for building applications using VTE.
 
 %package -n %{girname}
 Summary:	GObject Introspection interface description for vte with GTK+ 3.0
@@ -55,6 +43,17 @@ Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface description for vte with GTK+ 3.0.
+
+%package -n %{devname}
+Summary:	Files needed for developing applications which use VTE
+Group:		Development/C
+Provides:	%{name}-devel = %{version}-%{release}
+Requires: 	%{libname} = %{version}-%{release}
+Requires: 	%{girname} = %{version}-%{release}
+
+%description -n %{devname}
+VTE is a terminal emulator widget for use with GTK+ 3.0.  This
+package contains the files needed for building applications using VTE.
 
 %prep
 %setup -qn vte-%{version}
