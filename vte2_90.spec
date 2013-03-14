@@ -1,6 +1,6 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
-%define api	2_90
+%define api	2.90
 %define major	9
 %define libname	%mklibname vte %{api} %{major}
 %define girname	%mklibname vte-gir %{api}
