@@ -72,7 +72,6 @@ package contains the files needed for building applications using VTE.
 %install
 %makeinstall_std
 find %{buildroot} -name "*.la" -delete
-%find_lang vte-%{api}
 
 %files -f vte-%{api}.lang
 %doc COPYING HACKING NEWS README
