@@ -73,7 +73,7 @@ package contains the files needed for building applications using VTE.
 %makeinstall_std
 find %{buildroot} -name "*.la" -delete
 
-%files -f vte-%{api}.lang
+%files
 %doc COPYING HACKING NEWS README
 %{_bindir}/vte%{api}
 %dir %{_libdir}/%{name}
