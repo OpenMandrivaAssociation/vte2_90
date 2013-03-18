@@ -1,6 +1,7 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
-%define api	2.90
+%define api	2_90
+%define nicever 2.90
 %define major	9
 %define libname	%mklibname vte %{api} %{major}
 %define girname	%mklibname vte-gir %{api}
@@ -72,8 +73,9 @@ package contains the files needed for building applications using VTE.
 %install
 %makeinstall_std
 find %{buildroot} -name "*.la" -delete
+%find_lang vte-%{nicever}
 
-%files
+%files -f vte-%{nicever}.lang
 %doc COPYING HACKING NEWS README
 %{_bindir}/vte%{api}
 %dir %{_libdir}/%{name}
@@ -84,12 +86,11 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/libvte%{api}.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/Vte-%{api}.typelib
+%{_libdir}/girepository-1.0/Vte-%{nicever}.typelib
 
 %files -n %{devname}
-%doc %{_datadir}/gtk-doc/html/vte-%{api}
-%{_includedir}/vte-%{api}
+%doc %{_datadir}/gtk-doc/html/vte-%{nicever}
+%{_includedir}/vte-%{nicever}
 %{_libdir}/libvte%{api}.so
-%{_libdir}/pkgconfig/vte-%{api}.pc
-%{_datadir}/gir-1.0/Vte-%{api}.gir
-
+%{_libdir}/pkgconfig/vte-%{nicever}.pc
+%{_datadir}/gir-1.0/Vte-%{nicever}.gir
