@@ -9,7 +9,7 @@
 
 Name:		vte%{api}
 Version:	0.34.2
-Release:	3
+Release:	4
 Summary:	A terminal emulator widget
 License:	LGPLv2+
 Group:		System/Libraries
