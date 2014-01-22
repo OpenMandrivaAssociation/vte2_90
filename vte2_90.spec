@@ -8,8 +8,8 @@
 %define devname	%mklibname -d %{name}
 
 Name:		vte%{api}
-Version:	0.34.2
-Release:	6
+Version:	0.35.1
+Release:	1
 Summary:	A terminal emulator widget
 License:	LGPLv2+
 Group:		System/Libraries
