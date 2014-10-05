@@ -1,22 +1,20 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 
-%define api	2_90
-%define nicever 2.90
-%define major	9
+%define api	2.91
+%define major	0
 %define libname	%mklibname vte %{api} %{major}
 %define girname	%mklibname vte-gir %{api}
 %define devname	%mklibname -d %{name}
 
 Name:		vte%{api}
-Version:	0.35.1
-Release:	3
+Version:	0.38.0
+Release:	1
 Summary:	A terminal emulator widget
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/vte/%{url_ver}/vte-%{version}.tar.xz
-# See https://bugzilla.gnome.org/show_bug.cgi?id=663779
-Patch0:		vte-0.31.0-gtk32-meta-map.patch
+Patch0:		0001-widget-Only-show-the-cursor-on-motion-if-moved.patch
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
@@ -61,36 +59,39 @@ package contains the files needed for building applications using VTE.
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--enable-shared \
 	--disable-static \
 	--libexecdir=%{_libdir}/%{name} \
+	--enable-gnome-pty-helper \
 	--enable-gtk-doc \
 	--enable-introspection
 
-%make LIBS='-lm -lncurses -lutil -lgmodule-2.0'
+%make
+#LIBS='-lm -lncurses -lutil -lgmodule-2.0'
 
 %install
 %makeinstall_std
 find %{buildroot} -name "*.la" -delete
-%find_lang vte-%{nicever}
+%find_lang vte-%{api}
 
-%files -f vte-%{nicever}.lang
+%files -f vte-%{api}.lang
 %doc COPYING HACKING NEWS README
-%{_bindir}/vte%{api}
+%{_bindir}/vte-%{api}
 %dir %{_libdir}/%{name}
 %{_sysconfdir}/profile.d/vte.sh
 %attr(2711,root,utmp) %{_libdir}/%{name}/gnome-pty-helper
 
 %files -n %{libname}
-%{_libdir}/libvte%{api}.so.%{major}*
+%{_libdir}/libvte-%{api}.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/Vte-%{nicever}.typelib
+%{_libdir}/girepository-1.0/Vte-%{api}.typelib
 
 %files -n %{devname}
-%doc %{_datadir}/gtk-doc/html/vte-%{nicever}
-%{_includedir}/vte-%{nicever}
-%{_libdir}/libvte%{api}.so
-%{_libdir}/pkgconfig/vte-%{nicever}.pc
-%{_datadir}/gir-1.0/Vte-%{nicever}.gir
+%doc %{_datadir}/gtk-doc/html/vte-%{api}
+%{_includedir}/vte-%{api}
+%{_libdir}/libvte-%{api}.so
+%{_libdir}/pkgconfig/vte-%{api}.pc
+%{_datadir}/gir-1.0/Vte-%{api}.gir
+%{_datadir}/vala/vapi/*
