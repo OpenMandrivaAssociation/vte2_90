@@ -18,6 +18,7 @@ Patch0:		0001-widget-Only-show-the-cursor-on-motion-if-moved.patch
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
+BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(cairo-xlib)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.26.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
