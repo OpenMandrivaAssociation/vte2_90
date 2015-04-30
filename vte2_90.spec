@@ -21,6 +21,7 @@ BuildRequires:	intltool
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(cairo-xlib)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.26.0
+BuildRequires:	pkgconfig(gnutls)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.1.9
 BuildRequires:	pkgconfig(pango) >= 1.22.0
