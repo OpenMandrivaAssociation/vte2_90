@@ -7,13 +7,13 @@
 %define devname	%mklibname -d %{name}
 
 Name:		vte%{api}
-Version:	0.38.1
-Release:	2
+Version:	0.40.0
+Release:	1
 Summary:	A terminal emulator widget
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/vte/%{url_ver}/vte-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/vte/%{url_ver}/vte-%{version}.tar.xz
 Patch0:		0001-widget-Only-show-the-cursor-on-motion-if-moved.patch
 
 BuildRequires:	gtk-doc
