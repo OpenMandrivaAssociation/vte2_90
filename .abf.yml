@@ -1,5 +1,6 @@
 removed_sources:
   vte-0.38.0.tar.xz: 936215d2904959e7a18f08832d7454fdad09fde8
   vte-0.38.1.tar.xz: a2366f25a457fff234ad3983115773338be4ae32
-sources:
   vte-0.40.0.tar.xz: 28802ca385367233ca88014c353ba328c0fbdc72
+sources:
+  vte-0.42.1.tar.xz: d61a923c694b56b21117019f7a0b8806b05bc364

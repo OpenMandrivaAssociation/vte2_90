@@ -1,4 +1,5 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
+%define _disable_rebuild_configure 1
 
 %define api	2.91
 %define major	0
@@ -7,14 +8,13 @@
 %define devname	%mklibname -d %{name}
 
 Name:		vte%{api}
-Version:	0.40.0
+Version:	0.42.1
 Release:	1
 Summary:	A terminal emulator widget
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vte/%{url_ver}/vte-%{version}.tar.xz
-Patch0:		0001-widget-Only-show-the-cursor-on-motion-if-moved.patch
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
@@ -80,9 +80,7 @@ find %{buildroot} -name "*.la" -delete
 %files -f vte-%{api}.lang
 %doc COPYING HACKING NEWS README
 %{_bindir}/vte-%{api}
-%dir %{_libdir}/%{name}
 %{_sysconfdir}/profile.d/vte.sh
-%attr(2711,root,utmp) %{_libdir}/%{name}/gnome-pty-helper
 
 %files -n %{libname}
 %{_libdir}/libvte-%{api}.so.%{major}*
