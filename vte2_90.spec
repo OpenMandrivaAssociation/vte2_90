@@ -21,12 +21,17 @@ BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(cairo-xlib)
-BuildRequires:	pkgconfig(glib-2.0) >= 2.26.0
-BuildRequires:	pkgconfig(gnutls)
+BuildRequires:	pkgconfig(glib-2.0) >= 2.40.0
+BuildRequires:	pkgconfig(gobject-2.0)
+BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:	pkgconfig(gio-unix-2.0)
+BuildRequires:	pkgconfig(gnutls) >= 3.2.7
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
-BuildRequires:	pkgconfig(gtk+-3.0) >= 3.1.9
+BuildRequires:	pkgconfig(gtk+-3.0) >= 3.8.0
 BuildRequires:	pkgconfig(pango) >= 1.22.0
 BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pkgconfig(libpcre2-8)
 
 %description
 VTE is a terminal emulator widget for use with GTK+ 3.0.
