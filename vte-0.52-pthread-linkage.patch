@@ -1,0 +1,12 @@
+diff -up vte-0.52.2/src/Makefile.am.omv~ vte-0.52.2/src/Makefile.am
+--- vte-0.52.2/src/Makefile.am.omv~	2018-06-30 03:58:59.698624153 +0200
++++ vte-0.52.2/src/Makefile.am	2018-06-30 03:58:59.705624154 +0200
+@@ -130,7 +130,7 @@ libvte_@VTE_API_MAJOR_VERSION@_@VTE_API_
+ 	$(AM_LDFLAGS)
+ 
+ libvte_@VTE_API_MAJOR_VERSION@_@VTE_API_MINOR_VERSION@_la_LIBADD = \
+-	$(VTE_LIBS)
++	$(VTE_LIBS) -lpthread
+ 
+ # Generated sources
+ 

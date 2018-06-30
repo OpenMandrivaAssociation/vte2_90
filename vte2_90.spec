@@ -8,13 +8,14 @@
 %define devname	%mklibname -d %{name}
 
 Name:		vte%{api}
-Version:	0.42.1
+Version:	0.52.2
 Release:	1
 Summary:	A terminal emulator widget
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vte/%{url_ver}/vte-%{version}.tar.xz
+Patch0:		vte-0.52-pthread-linkage.patch
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
@@ -59,6 +60,7 @@ package contains the files needed for building applications using VTE.
 %prep
 %setup -qn vte-%{version}
 %apply_patches
+./autogen.sh
 
 %build
 %configure \
