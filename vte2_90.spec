@@ -64,7 +64,7 @@ package contains the files needed for building applications using VTE.
 
 %prep
 %setup -qn vte-%{version}
-%apply_patches
+%autopatch -p1
 ./autogen.sh
 
 %build
