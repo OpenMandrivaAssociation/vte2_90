@@ -13,7 +13,7 @@ Release:	2
 Summary:	A terminal emulator widget
 License:	LGPLv2+
 Group:		System/Libraries
-URL:		http://www.gnome.org/
+URL:		https://www.gnome.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/vte/%{url_ver}/vte-%{version}.tar.xz
 Patch0:		vte-0.52-pthread-linkage.patch
 
